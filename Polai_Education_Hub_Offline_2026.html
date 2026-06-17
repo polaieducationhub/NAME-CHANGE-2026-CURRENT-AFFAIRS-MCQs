@@ -1,0 +1,1313 @@
+<!doctype html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>POLAI EDUCATION HUB - Name Change 2026 (Offline Version)</title>
+  
+  <!-- Tailwind CSS v4 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Sleek Interface Signature Styles */
+    :root {
+      font-family: 'Inter', sans-serif;
+    }
+    
+    .font-display {
+      font-family: 'Outfit', sans-serif;
+    }
+    
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .glass {
+      background: rgba(15, 23, 42, 0.55);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .orange-glow {
+      box-shadow: 0 0 25px rgba(249, 115, 22, 0.4);
+    }
+    
+    .blue-glow {
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.4);
+    }
+
+    .bg-mesh {
+      background: radial-gradient(circle at 0% 0%, #1e3a8a 0%, transparent 50%),
+                  radial-gradient(circle at 100% 100%, #ea580c 0%, transparent 50%),
+                  radial-gradient(circle at 50% 50%, #0f172a 0%, transparent 100%);
+      background-color: #0f172a;
+    }
+
+    .floating-orb {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.12;
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+      animation: float 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(-20px) scale(1.05); }
+    }
+
+    /* Confetti animation */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      z-index: 99;
+      animation: confetti-fall 4s linear forwards;
+    }
+
+    @keyframes confetti-fall {
+      0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+      15% { transform: translateY(100px) rotate(120deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* Print certificate styling */
+    @media print {
+      body {
+        background: white !important;
+        color: black !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-only {
+        display: block !important;
+      }
+    }
+  </style>
+<script src="/_aistudio-iframe.js"></script></head>
+<body class="bg-mesh text-slate-100 min-h-screen relative flex flex-col justify-between overflow-x-hidden selection:bg-orange-500/20 selection:text-orange-300">
+
+  <!-- Ambient background orbs -->
+  <div class="floating-orb w-96 h-96 bg-blue-500/15 top-[-100px] left-[-100px]" style="animation-delay: 0s;"></div>
+  <div class="floating-orb w-80 h-80 bg-orange-500/15 bottom-[-100px] right-[-100px]" style="animation-delay: 2s;"></div>
+  <div class="floating-orb w-64 h-64 bg-indigo-500/10 top-[20%] right-[10%]" style="animation-delay: 4s;"></div>
+
+  <!-- Main Container -->
+  <div class="relative z-10 flex flex-col min-h-screen justify-between" id="app-root">
+
+    <!-- HEADER SECTION -->
+    <header class="border-b border-white/10 bg-slate-950/40 backdrop-blur-md px-4 py-3 sm:px-6">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        
+        <!-- Brand Title Info -->
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-gradient-to-br from-orange-400 to-blue-500 p-[2px] cursor-pointer shadow-lg active:scale-95 transition" onclick="playAudio('click')">
+            <div class="w-full h-full rounded-full bg-slate-900 flex items-center justify-center font-bold text-xs sm:text-sm text-white">PH</div>
+          </div>
+          <div class="flex flex-col text-left">
+            <h1 class="text-xl sm:text-2xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-orange-400 font-display">
+              POLAI EDUCATION HUB
+            </h1>
+            <p class="text-[10px] uppercase tracking-widest text-white/50">
+              OFFLINE STUDY & TEST PORTAL • 2026 EDITION
+            </p>
+          </div>
+        </div>
+
+        <!-- Controls (Sound toggles / Action Buttons) -->
+        <div class="flex items-center gap-3">
+          <button onclick="toggleAudio()" id="sound-btn" class="p-2.5 rounded-xl glass hover:bg-white/10 text-orange-400 font-bold text-xs flex items-center gap-2 transition cursor-pointer select-none" title="Toggle Sound Effects">
+            <svg id="sound-on-icon" class="w-4 h-4 fill-none stroke-current stroke-2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.510 8.25H6.75Z" />
+            </svg>
+            <span class="hidden sm:inline">Sound Effects</span>
+          </button>
+          
+          <span class="px-3 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-black tracking-widest uppercase">
+            Offline Edition
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN BODY GATEWAY -->
+    <main class="flex-grow max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 flex items-center justify-center relative">
+      
+      <!-- 1. HERO / WELCOME SCREEN -->
+      <section id="hero-screen" class="w-full max-w-4xl text-center flex flex-col items-center">
+        <div class="w-full glass p-6 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-8">
+          
+          <!-- Left accent vertical gradient line -->
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-500 to-orange-500 z-10 pointer-events-none"></div>
+
+          <!-- Decorative tags -->
+          <div class="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 text-xs font-extrabold uppercase tracking-widest mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
+            COMPLETELY OFFLINE STUDY WEBAPP SPECIAL
+          </div>
+
+          <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black font-display text-white leading-tight mb-4 tracking-tight drop-shadow-lg">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-indigo-200 to-orange-400">
+              NAME CHANGE 2026
+            </span>
+            <br />
+            <span class="text-orange-500 text-2xl sm:text-4xl lg:text-5xl">
+              CURRENT AFFAIRS MCQs
+            </span>
+          </h2>
+
+          <p class="text-slate-355 text-blue-300 font-mono text-xs sm:text-sm tracking-widest uppercase mb-8">
+            Complete bilingual slides (English & Hindi) with detailed explanations
+          </p>
+
+          <!-- Study cards overview of slides -->
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-10 text-xs sm:text-sm">
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 Kerala → <strong class="text-white">Keralam</strong>
+            </div>
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 PMO → <strong class="text-white">Seva Teerth</strong>
+            </div>
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 Mount Abu → <strong class="text-white">Aburaj</strong>
+            </div>
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 Fort William → <strong class="text-white">Vijay Durg</strong>
+            </div>
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 MGNREGA → <strong class="text-white">VB-G RAM G</strong>
+            </div>
+            <div class="glass hover:bg-white/10 p-3 rounded-xl border-white/10 text-slate-300 transition-all">
+              🔄 Port Blair → <strong class="text-white">Sri Vijaya Puram</strong>
+            </div>
+          </div>
+
+          <!-- Configuration & Entry -->
+          <div class="glass border-white/10 p-6 rounded-2xl max-w-xl mx-auto shadow-xl">
+            <label for="name-input" class="block text-left text-xs font-bold text-slate-400 uppercase tracking-widest mb-2">
+              🎓 Guest / Candidate Full Name:
+            </label>
+            <input
+              type="text"
+              id="name-input"
+              placeholder="Enter Name for Certificate"
+              class="w-full px-4 py-3 bg-slate-950 border border-slate-700 focus:border-orange-500 rounded-xl outline-none text-white tracking-wide transition text-center font-bold mb-6 text-lg"
+            />
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <button onclick="startQuiz('study')" class="flex-1 flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-lg font-black bg-blue-600 hover:bg-blue-500 text-white shadow-lg active:scale-95 transition-all text-center cursor-pointer">
+                <span>📖 Study Deck Mode</span>
+              </button>
+              <button onclick="startQuiz('exam')" class="flex-1 flex items-center justify-center gap-2.5 px-6 py-4 rounded-xl text-lg font-black bg-gradient-to-r from-orange-500 to-pink-500 text-white hover:scale-105 transition-all duration-200 orange-glow cursor-pointer">
+                <span>⏱️ Exam Timer Mode</span>
+              </button>
+            </div>
+            
+            <p class="text-slate-400 text-xs mt-4">
+              <strong>Study Mode</strong> gives instant facts details. <strong>Exam Mode</strong> tests you with 30s timer!
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick bento reference list -->
+        <div id="offline-bento" class="w-full"></div>
+      </section>
+
+      <!-- 2. QUIZ PRESENTATION DECK -->
+      <section id="quiz-screen" class="w-full hidden flex-col lg:flex-row gap-6 max-w-7xl items-stretch">
+        
+        <!-- Left MCQ Card (70%) -->
+        <div class="flex-grow flex flex-col gap-5 lg:w-[70%]">
+          
+          <div class="glass rounded-3xl overflow-hidden shadow-2xl relative flex flex-col min-h-[500px]">
+            <!-- Border decoration -->
+            <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-500 to-orange-500 z-20"></div>
+
+            <!-- Header of slide -->
+            <div class="bg-white/5 border-b border-white/15 p-3 sm:p-5 flex justify-between items-center relative z-10 pl-6">
+              <span id="slide-category" class="bg-orange-500 text-white font-black text-xs sm:text-sm px-2.5 py-1 rounded-md uppercase tracking-wider">
+                CATEGORY
+              </span>
+
+              <div class="flex items-center gap-4">
+                <div id="timer-box" class="hidden px-3 py-1.5 bg-orange-500/10 border border-orange-500/30 rounded-lg text-orange-400 font-mono text-sm font-bold flex items-center gap-1.5">
+                  <span>⏱️</span> <span id="timer-val">30s</span>
+                </div>
+                <div class="text-xs uppercase text-slate-400 font-bold tracking-wider">
+                  Slide <strong id="slide-num-indicator" class="text-white text-sm">1 / 27</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide content body -->
+            <div class="p-6 sm:p-10 relative z-10 flex-grow flex flex-col justify-between pl-8">
+              
+              <!-- Bilingual Question block -->
+              <div class="mb-8">
+                <span id="slide-q-badge" class="bg-blue-600/20 text-blue-300 text-xs font-bold px-3 py-1.5 rounded-md uppercase mb-4 inline-block tracking-widest">
+                  QUESTION 1
+                </span>
+                
+                <h3 id="slide-question-en" class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white leading-tight mb-3 tracking-tight font-display">
+                  English Question Body?
+                </h3>
+                
+                <p id="slide-question-hi" class="text-base sm:text-lg md:text-xl text-white/75 font-medium italic leading-relaxed">
+                  Hindi Version Question text goes here...
+                </p>
+              </div>
+
+              <!-- Options Grid Layout -->
+              <div id="slide-options-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Javascript populated options -->
+              </div>
+
+              <!-- Explanation Area (Reveals in Study mode or post-submission) -->
+              <div id="slide-explanation-card" class="mt-8 p-5 rounded-2xl border border-blue-500/20 bg-blue-500/5 hidden transition-all">
+                <div class="flex items-start gap-3">
+                  <div class="p-1.5 rounded-lg bg-blue-500/10 text-blue-400">
+                    💡
+                  </div>
+                  <div class="space-y-2">
+                    <span class="block text-xs uppercase font-extrabold text-blue-400 tracking-wider">Detailed Fact & Explanation:</span>
+                    <p id="slide-explanation-text" class="text-sm sm:text-base text-slate-200 font-medium leading-relaxed"></p>
+                    <div id="slide-important-fact-box" class="pt-2 border-t border-white/5 text-xs text-orange-400 italic">
+                      <strong>Exam Booster Fact:</strong> <span id="slide-important-fact"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Slide Navigation Footer -->
+            <div class="border-t border-white/10 bg-slate-950/20 p-5 pl-8 pr-6 flex justify-between items-center relative z-10">
+              <button onclick="navigateSlide(-1)" class="px-5 py-2.5 rounded-xl glass hover:bg-white/10 text-white font-bold text-sm tracking-wide transition flex items-center gap-1.5 cursor-pointer">
+                ⬅️ Prev
+              </button>
+              
+              <!-- Core Submission trigger / Next slide trigger -->
+              <button id="slide-action-btn" onclick="submitOrNext()" class="px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-extrabold text-base rounded-full shadow-lg hover:scale-105 transition-all orange-glow flex items-center gap-2 cursor-pointer">
+                <span>Lock Answer</span> ➡️
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Bottom interactive progress ribbon -->
+          <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10">
+            <div id="slide-prog-ribbon" class="h-full bg-gradient-to-r from-blue-500 via-indigo-500 to-orange-500" style="width: 0%"></div>
+          </div>
+
+        </div>
+
+        <!-- Right Side Evaluation Stats Container (30%) -->
+        <div class="w-full lg:w-80 flex flex-col gap-6 shrink-0 lg:w-[30%]">
+          
+          <!-- Evaluation status panel card -->
+          <div class="glass p-5 rounded-2xl shadow-xl flex flex-col gap-4 relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-blue-500 to-indigo-500 z-10"></div>
+            
+            <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-350 flex items-center gap-2">
+              📝 Evaluation Status
+            </h3>
+
+            <div class="space-y-1">
+              <div class="flex justify-between text-xs text-slate-400">
+                <span>Completion progress</span>
+                <span id="tracker-percentage" class="font-bold">0%</span>
+              </div>
+              <div class="w-full h-2.5 bg-white/5 rounded-full overflow-hidden border border-white/10">
+                <div id="tracker-bar" class="h-full bg-gradient-to-r from-blue-500 to-orange-500 rounded-full transition-all" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <!-- Numeric Counters -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white/5 p-3 rounded-xl border border-white/10 text-center">
+                <span class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Correct</span>
+                <span id="score-correct-cnt" class="text-2xl font-black text-emerald-400 font-mono">0</span>
+              </div>
+              <div class="bg-white/5 p-3 rounded-xl border border-white/10 text-center">
+                <span class="block text-[10px] text-slate-400 uppercase font-bold tracking-wider">Wrong</span>
+                <span id="score-wrong-cnt" class="text-2xl font-black text-rose-450 text-rose-450 text-rose-400 font-mono">0</span>
+              </div>
+            </div>
+
+            <button onclick="gotoHome()" class="text-xs text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5 py-1">
+              🏠 Back to Portal Gateway
+            </button>
+          </div>
+
+          <!-- Slide Matrix grid map -->
+          <div class="glass p-5 rounded-2xl shadow-xl flex flex-col gap-4 relative overflow-hidden flex-grow">
+            <div class="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-500 to-orange-500 z-10"></div>
+            
+            <div class="flex justify-between items-center">
+              <h3 class="font-display font-bold text-sm uppercase tracking-wider text-slate-350 flex items-center gap-1.5">
+                🗺️ Slide Matrix MAP
+              </h3>
+              <span class="text-[10px] font-mono text-slate-400">27 MCQs</span>
+            </div>
+
+            <p class="text-slate-400 text-xs leading-relaxed">
+              Jump slides instantly for self-study check and facts revision:
+            </p>
+
+            <div id="map-grid-items" class="grid grid-cols-5 sm:grid-cols-7 lg:grid-cols-5 gap-1.5 my-2">
+              <!-- JS rendered buttons -->
+            </div>
+
+            <button onclick="resetEvaluation()" class="mt-4 flex items-center justify-center gap-2 px-4 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-bold text-slate-350 border border-white/10 transition cursor-pointer">
+              🔄 Reset Progress & Start Over
+            </button>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- 3. SCORE REPORT & CERTIFICATE SCREEN -->
+      <section id="results-screen" class="w-full hidden max-w-4xl text-center">
+        <div class="glass p-8 sm:p-12 rounded-3xl shadow-2xl relative overflow-hidden mb-8">
+          
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-blue-500 via-indigo-500 to-orange-500 z-10"></div>
+          
+          <div class="w-16 h-16 bg-gradient-to-tr from-orange-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl text-3xl">
+            🏆
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl font-black font-display text-white mb-2 tracking-tight">
+            DECK COMPLETION SUCCESS!
+          </h2>
+          <p class="text-blue-400 font-bold uppercase tracking-widest text-xs mb-8">
+            Evaluation Report & Certificate of Completion
+          </p>
+
+          <!-- Score Card Widgets -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-10 text-center">
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <span class="block text-slate-400 text-xs uppercase tracking-widest font-black mb-1">SCORE RATE</span>
+              <span id="result-score-percent" class="text-3xl font-black text-orange-400 font-mono">0%</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <span class="block text-slate-400 text-xs uppercase tracking-widest font-black mb-1">ACCURATE RESPONSES</span>
+              <span id="result-score-fraction" class="text-3xl font-black text-white font-mono">0 / 27</span>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-4">
+              <span class="block text-slate-400 text-xs uppercase tracking-widest font-black mb-1">EVALUATION GRADE</span>
+              <span id="result-score-grade" class="text-3xl font-black text-emerald-400 font-display font-extrabold">A+ EXCELLENT</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Printable Certificate Container -->
+          <div id="certificate-widget" class="relative max-w-3xl mx-auto bg-slate-950 p-6 sm:p-10 rounded-2xl border-4 border-double border-orange-500/50 shadow-2xl overflow-hidden mb-8 text-slate-100">
+            <!-- Decorative corner elements -->
+            <div class="absolute top-2 left-2 text-orange-500/20 text-4xl">⚜️</div>
+            <div class="absolute top-2 right-2 text-orange-500/20 text-4xl">⚜️</div>
+            <div class="absolute bottom-2 left-2 text-orange-500/20 text-4xl">⚜️</div>
+            <div class="absolute bottom-2 right-2 text-orange-500/20 text-4xl">⚜️</div>
+            
+            <div class="border border-orange-500/20 p-6 sm:p-8 flex flex-col items-center">
+              <span class="text-xs font-black tracking-[0.3em] uppercase text-orange-400 mb-4">CERTIFICATE OF EXCELLENCE</span>
+              
+              <h4 class="text-2xl sm:text-3xl font-extrabold tracking-tight font-display text-white mb-2">
+                POLAI EDUCATION HUB
+              </h4>
+              <p class="text-[10px] sm:text-xs text-slate-400 uppercase tracking-widest mb-6 border-b border-white/10 pb-4 w-full text-center">
+                YOUTUBE • TELEGRAM • LIVE LEARNING PORTAL
+              </p>
+
+              <span class="text-xs text-slate-400 italic mb-2">This is proudly presented for excellence in MCQ assessment to</span>
+              
+              <h3 id="cert-candidate-name" class="text-2xl sm:text-4xl font-black font-display tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-pink-500 uppercase my-4 border-b-2 border-orange-500/30 px-6 pb-2">
+                STUDENT
+              </h3>
+
+              <p class="text-xs sm:text-sm text-slate-300 max-w-md mx-auto leading-relaxed mb-8 text-center">
+                For scoring outstanding performance by successfully matching and completing all <strong class="text-white">27 major name change competitive slides of 2025-2026</strong> current affairs with professional competency.
+              </p>
+
+              <div class="flex flex-row justify-between items-end w-full max-w-lg mt-4 text-[10px] sm:text-xs">
+                <div class="text-left">
+                  <span class="block text-slate-500">Date of Issue:</span>
+                  <strong class="text-slate-305 text-white" id="cert-stamp-date">2026-06-12</strong>
+                </div>
+                <div class="flex flex-col items-center">
+                  <div class="w-12 h-12 bg-orange-500/10 border border-orange-500/30 rounded-full flex items-center justify-center text-lg mb-1">
+                    🔱
+                  </div>
+                  <strong class="text-orange-400 uppercase tracking-widest text-[9px]">Verified Portal QR</strong>
+                </div>
+                <div class="text-right">
+                  <span class="block text-slate-500">Director Signature:</span>
+                  <strong class="text-orange-400 font-display text-sm italic font-extrabold font-serif">Polai Hub</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onclick="window.print()" class="px-6 py-3 rounded-full bg-slate-900 border border-white/20 hover:bg-slate-800 text-white font-bold transition flex items-center justify-center gap-2 cursor-pointer no-print">
+              🖨️ Print & Save Certificate
+            </button>
+            <button onclick="gotoHome()" class="px-8 py-3 rounded-full bg-gradient-to-r from-orange-500 to-pink-500 text-white font-extrabold hover:scale-105 transition orange-glow cursor-pointer no-print">
+              🏠 Back to Gateway
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="p-6 flex flex-col md:flex-row justify-between items-center glass border-t border-white/10 gap-4 mt-8">
+      <div class="flex flex-wrap justify-center gap-6">
+        <a href="https://youtube.com/" target="_blank" class="flex items-center gap-2 hover:text-red-500 transition-colors">
+          <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center shadow-md">
+            <span class="text-white text-xs">YT</span>
+          </div>
+          <span class="text-sm font-semibold">Polai Education Hub</span>
+        </a>
+        <a href="https://t.me/polaieduhub" target="_blank" class="flex items-center gap-2 opacity-80 hover:opacity-100 hover:text-blue-400 transition-all">
+          <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center shadow-md">
+            <span class="text-white text-xs">TG</span>
+          </div>
+          <span class="text-sm font-semibold">t.me/polaieduhub</span>
+        </a>
+      </div>
+      <p class="text-xs text-white/40 tracking-widest font-mono select-none">
+        DESIGNED FOR OFFLINE CLASSROOM ASSESSMENTS • © 2026
+      </p>
+    </footer>
+
+  </div>
+
+  <!-- Standard Confetti Canvas Overlay -->
+  <div id="confetti-container" class="absolute inset-0 pointer-events-none overflow-hidden z-50"></div>
+
+  <!-- JAVASCRIPT CONTROL LOGIC FOR STUDY/EXAM ENGINE -->
+  <script>
+    // Complete 27 Quiz Database inlined for full internet-free offline functionality!
+    const QUESTIONS_DB = [
+      {
+        id: 1,
+        category: "NAME CHANGE",
+        questionEn: "The Union Cabinet Approved A Proposal To Rename Kerala As ____?",
+        questionHi: "केंद्रीय मंत्रिमंडल ने केरल का नाम बदलकर _____ रखने के प्रस्ताव को मंजूरी दी?",
+        options: ["Malabar", "Travancore", "Cheralam", "Keralam"],
+        correctOptionIndex: 3,
+        explanation: "Kerala is called 'Keralam' in the Malayalam language. Keralam = 'Kera' (Coconut Tree) + 'Alam' (Land) = 'Land of Coconut Trees'",
+        importantFact: "Article 3 empowers Parliament to form new states, alter area, change boundaries & rename states."
+      },
+      {
+        id: 2,
+        category: "AIRPORT RENAME",
+        questionEn: "Adampur Airport Is Located In Which State?",
+        questionHi: "आदमपुर हवाई अड्डा किस राज्य में स्थित है?",
+        options: ["Haryana", "Punjab", "Rajasthan", "Bihar"],
+        correctOptionIndex: 1,
+        explanation: "Adampur Airport is in Punjab. It was renamed as 'Sri Guru Ravidas Maharaj Ji Airport' in 2025.",
+        importantFact: "Guru Ravidas Ji was a 15th–16th Century Bhakti Saint and social reformer."
+      },
+      {
+        id: 3,
+        category: "NAME CHANGE",
+        questionEn: "The Prime Minister's Office (PMO) Has Been Renamed As:",
+        questionHi: "प्रधानमंत्री कार्यालय (PMO) का नाम बदलकर इस प्रकार रखा गया है:",
+        options: ["Lok Bhavan", "Kartavya Bhavan", "Seva Teerth", "Swaraj Bhavan"],
+        correctOptionIndex: 2,
+        explanation: "PMO has been renamed as 'Seva Teerth' — reflecting core idea of Service-Oriented Governance.",
+        importantFact: "Other changes: Rajpath→Kartavya Path, North & South Block→Kartavya Bhavan, Mughal Gardens→Amrit Udyan."
+      },
+      {
+        id: 4,
+        category: "NAME CHANGE",
+        questionEn: "North Block And South Block Will Be Converted Into?",
+        questionHi: "नॉर्थ ब्लॉक और साउथ ब्लॉक को किस रूप में परिवर्तित किया जाएगा?",
+        options: ["National Library", "Yuge Yugeen Bharat National Museum", "Parliament Museum", "Heritage Centre"],
+        correctOptionIndex: 1,
+        explanation: "North Block and South Block will become part of 'Yuge Yugeen Bharat' National Museum.",
+        importantFact: "The museum will showcase India's rich history of 5000+ years of civilization."
+      },
+      {
+        id: 5,
+        category: "AIRPORT RENAME",
+        questionEn: "Pakyong Airport Is Located In Which State Of India?",
+        questionHi: "पाक्योंग हवाई अड्डा भारत के किस राज्य में स्थित है?",
+        options: ["Sikkim", "Arunachal Pradesh", "Assam", "Meghalaya"],
+        correctOptionIndex: 0,
+        explanation: "Pakyong Airport is in Sikkim. It was renamed as 'Trilochan Pokhrel Airport'.",
+        importantFact: "Trilochan Pokhrel was the first freedom fighter from Sikkim. Announced by CM Prem Singh Tamang."
+      },
+      {
+        id: 6,
+        category: "NAME CHANGE",
+        questionEn: "Mount Abu In Rajasthan Has Been Renamed As What?",
+        questionHi: "राजस्थान के माउंट आबू का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Aburaj", "Aravallipur", "Shivraj", "Abunaga"],
+        correctOptionIndex: 0,
+        explanation: "Mount Abu (Rajasthan) has been renamed as 'Aburaj'. Rajasthan govt also renamed Kaman Town→Kamvan and Jahazpur→Yagyapur.",
+        importantFact: "Mount Abu is the only hill station in Rajasthan, located in the Aravalli range."
+      },
+      {
+        id: 7,
+        category: "ENVIRONMENT",
+        questionEn: "Which Wildlife Sanctuary Has Been Declared Kerala's First Butterfly Sanctuary?",
+        questionHi: "किस वन्यजीव अभयारण्य को केरल का पहला तितली अभयारण्य घोषित किया गया है?",
+        options: ["Wayanad Wildlife Sanctuary", "Periyar Wildlife Sanctuary", "Aralam Wildlife Sanctuary", "Silent Valley National Park"],
+        correctOptionIndex: 2,
+        explanation: "Aralam Wildlife Sanctuary (Kannur district, Kerala) has been renamed as 'Aralam Butterfly Sanctuary' — Kerala's first butterfly sanctuary.",
+        importantFact: "Located in the Western Ghats — one of the world's eight biodiversity hotspots."
+      },
+      {
+        id: 8,
+        category: "CENTRAL SCHEME",
+        questionEn: "Which Act Is Replaced By The Viksit Bharat–Guarantee for Rozgar & Ajeevika Mission (Gramin) Bill, 2025?",
+        questionHi: "किस अधिनियम को विकसित भारत-रोजगार और आजीविका गारंटी मिशन (ग्रामीण) विधेयक, 2025 द्वारा प्रतिस्थापित किया गया है?",
+        options: ["MGNREGA", "National Food Security Act", "Right to Education Act", "Forest Rights Act"],
+        correctOptionIndex: 0,
+        explanation: "VB-G RAM G Bill 2025 replaces MGNREGA (2005). Introduced by Ministry of Rural Development. Aligned with Viksit Bharat @2047.",
+        importantFact: "MGNREGA was originally called NREGA (2006), renamed MGNREGA in 2009, now renamed VB-G RAM G in 2025."
+      },
+      {
+        id: 9,
+        category: "NAME CHANGE",
+        questionEn: "Which Railway Station Was Renamed As 'Ahilyanagar' In Honour Of Ahilyabai Holkar?",
+        questionHi: "अहिल्याबाई होल्कर के सम्मान में किस रेलवे स्टेशन का नाम बदलकर 'अहिल्यानगर' कर दिया गया है?",
+        options: ["Indore", "Pune", "Ahmednagar", "Nagpur"],
+        correctOptionIndex: 2,
+        explanation: "Ahmednagar Railway Station in Maharashtra was renamed as 'Ahilyanagar' in honour of Ahilyabai Holkar.",
+        importantFact: "Ahilyabai Holkar was an 18th-century Maratha queen known for her administrative excellence."
+      },
+      {
+        id: 10,
+        category: "NAME CHANGE",
+        questionEn: "Which City Has Been Renamed As Parashurampuri?",
+        questionHi: "किस शहर का नाम बदलकर परशुरामपुरी रखा गया है?",
+        options: ["Jalalabad", "Kanpur", "Varanasi", "Gwalior"],
+        correctOptionIndex: 0,
+        explanation: "Jalalabad (Shahjahanpur district, Uttar Pradesh) has been renamed as Parashurampuri.",
+        importantFact: "Located in Shahjahanpur district, Uttar Pradesh — named after the Hindu deity Parashurama."
+      },
+      {
+        id: 11,
+        category: "NAME CHANGE",
+        questionEn: "Which University Will Be Renamed After Former Prime Minister Manmohan Singh?",
+        questionHi: "किस विश्वविद्यालय का नाम पूर्व प्रधानमंत्री मनमोहन सिंह के नाम पर रखा जाएगा?",
+        options: ["Bengaluru City University", "Delhi University", "University of Mumbai", "Kolkata University"],
+        correctOptionIndex: 0,
+        explanation: "Bengaluru City University will be renamed as 'Dr Manmohan Singh City University'.",
+        importantFact: "Dr Manmohan Singh served as India's Prime Minister from 2004–2014 and was a renowned economist."
+      },
+      {
+        id: 12,
+        category: "NAME CHANGE",
+        questionEn: "Which State Announced The Renaming Of Khuldabad To 'Ratnapur'?",
+        questionHi: "किस राज्य ने खुलदाबाद का नाम बदलकर 'रत्नपुर' करने की घोषणा की?",
+        options: ["Maharashtra", "Uttar Pradesh", "Madhya Pradesh", "Rajasthan"],
+        correctOptionIndex: 0,
+        explanation: "Maharashtra announced the renaming of Khuldabad to 'Ratnapur'.",
+        importantFact: "Khuldabad is located in Aurangabad (Chhatrapati Sambhajinagar) district, Maharashtra."
+      },
+      {
+        id: 13,
+        category: "DEFENCE",
+        questionEn: "What is the new name of HAL's upgraded Hindustan Jet Trainer 36?",
+        questionHi: "एचएएल के उन्नत हिंदुस्तान जेट ट्रेनर 36 का नया नाम क्या है?",
+        options: ["Garuda", "Yashas", "Vikrant", "Tejas"],
+        correctOptionIndex: 1,
+        explanation: "HAL's Hindustan Jet Trainer (HJT-36) has been renamed as 'Yashas'.",
+        importantFact: "Manufactured by HAL (Hindustan Aeronautics Limited) — a key aircraft trainer for Indian Air Force."
+      },
+      {
+        id: 14,
+        category: "NAME CHANGE",
+        questionEn: "Recently Fort William Has Been Renamed As?",
+        questionHi: "हाल ही में फोर्ट विलियम का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Shiv Durg", "Vijay Durg", "Samrat Durg", "Veer Durg"],
+        correctOptionIndex: 1,
+        explanation: "Fort William (Kolkata, West Bengal) has been renamed as 'Vijay Durg' by the Indian Army.",
+        importantFact: "Fort William was built by British East India Company (1696–1702). It is HQ of Eastern Command, Indian Army."
+      },
+      {
+        id: 15,
+        category: "NAME CHANGE",
+        questionEn: "Which Lake Has Been Renamed As Varun Sagar?",
+        questionHi: "किस झील का नाम बदलकर वरुण सागर रखा गया है?",
+        options: ["Ana Sagar", "Pichola Lake", "Sambhar Lake", "Foy Sagar"],
+        correctOptionIndex: 3,
+        explanation: "Foy Sagar Lake (Ajmer, Rajasthan, built 1892) has been renamed as 'Varun Sagar'.",
+        importantFact: "Also: King Edward Memorial Bhawan, Ajmer renamed as 'Maharishi Dayanand Vishrant Grih'."
+      },
+      {
+        id: 16,
+        category: "NAME CHANGE",
+        questionEn: "What Is The New Name Given To Port Blair?",
+        questionHi: "पोर्ट ब्लेयर का नया नाम क्या रखा गया है?",
+        options: ["Sri Rajendra Puram", "Sri Vijaya Puram", "Sri Shivaji Puram", "Sri Bharat Puram"],
+        correctOptionIndex: 1,
+        explanation: "Port Blair (Capital of Andaman and Nicobar Islands) has been renamed as 'Sri Vijaya Puram' — announced by Home Minister Amit Shah.",
+        importantFact: "The name 'Sri Vijaya Puram' symbolises India's victory and sovereignty over the islands."
+      },
+      {
+        id: 17,
+        category: "AIRPORT RENAME",
+        questionEn: "Pune Airport Will Be Renamed After Which Spiritual Figure?",
+        questionHi: "पुणे हवाई अड्डे का नाम किस आध्यात्मिक व्यक्ति के नाम पर रखा जाएगा?",
+        options: ["Swami Vivekananda", "Sri Aurobindo", "Jagadguru Sant Tukaram Maharaj", "Guru Nanak"],
+        correctOptionIndex: 2,
+        explanation: "Pune Airport's new name is 'Jagadguru Sant Tukaram Maharaj Airport'.",
+        importantFact: "Sant Tukaram Maharaj was a 17th-century Marathi saint and poet — key figure in the Bhakti movement."
+      },
+      {
+        id: 18,
+        category: "NAME CHANGE",
+        questionEn: "Which State Renamed Ahmednagar As 'Ahilyanagar'?",
+        questionHi: "किस राज्य ने अहमदनगर का नाम बदलकर 'अहिल्यानगर' रखा?",
+        options: ["Gujarat", "Maharashtra", "UP", "Telangana"],
+        correctOptionIndex: 1,
+        explanation: "Maharashtra renamed Ahmednagar as 'Ahilyanagar' in honour of Ahilyabai Holkar, the 18th-century Maratha queen.",
+        importantFact: "Ahilyabai Holkar (1725–1795) was known for building temples and ghats across India."
+      },
+      {
+        id: 19,
+        category: "AIRPORT RENAME",
+        questionEn: "Maharishi Valmiki International Airport Is Located In Which City?",
+        questionHi: "महर्षि वाल्मीकि अंतर्राष्ट्रीय हवाई अड्डा किस शहर में स्थित है?",
+        options: ["Ayodhya", "Prayagraj", "Varanasi", "Agra"],
+        correctOptionIndex: 0,
+        explanation: "Ayodhya Airport has been renamed as 'Maharishi Valmiki International Airport, Ayodhya Dham'.",
+        importantFact: "Maharishi Valmiki is the author of Ramayana — the epic connected to the holy city of Ayodhya."
+      },
+      {
+        id: 20,
+        category: "NAME CHANGE",
+        questionEn: "The Aurangabad Railway Station In Maharashtra Has Been Renamed To Honor Which Historical Personality?",
+        questionHi: "औरंगाबाद रेलवे स्टेशन (महाराष्ट्र) का नाम बदलकर किस ऐतिहासिक हस्ती को सम्मानित किया गया है?",
+        options: ["Chhatrapati Sambhaji Maharaj", "Chhatrapati Shivaji Maharaj", "Mahatma Gandhi", "Dr. B. R. Ambedkar"],
+        correctOptionIndex: 0,
+        explanation: "Aurangabad Railway Station has been renamed as 'Chhatrapati Sambhajinagar Railway Station' in honour of Chhatrapati Sambhaji Maharaj.",
+        importantFact: "Chhatrapati Sambhaji Maharaj (1657–1689) was the eldest son of Chhatrapati Shivaji Maharaj."
+      },
+      {
+        id: 21,
+        category: "AIRPORT RENAME",
+        questionEn: "Navi Mumbai International Airport Is Named After Which Leader?",
+        questionHi: "नवी मुंबई अंतर्राष्ट्रीय हवाई अड्डे का नाम किस नेता के नाम पर रखा गया है?",
+        options: ["Balasaheb Thackeray", "Sardar Patel", "D. B. Patil", "Jawaharlal Nehru"],
+        correctOptionIndex: 2,
+        explanation: "Navi Mumbai International Airport's new name is 'Loknete D. B. Patil Navi Mumbai International Airport'.",
+        importantFact: "D. B. Patil was a prominent political leader and social activist from Maharashtra."
+      },
+      {
+        id: 22,
+        category: "NAME CHANGE",
+        questionEn: "Carnac Bridge In Mumbai Has Been Renamed As What?",
+        questionHi: "मुंबई में कर्नाक ब्रिज का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Sindoor Bridge", "Azadi Bridge", "Shivaji Bridge", "Veer Bridge"],
+        correctOptionIndex: 0,
+        explanation: "Carnac Bridge in Mumbai has been renamed as 'Sindoor Bridge'.",
+        importantFact: "The bridge was renamed by Maharashtra government — part of a broader renaming drive across Mumbai."
+      },
+      {
+        id: 23,
+        category: "SPORTS",
+        questionEn: "Rajiv Gandhi Khel Ratna Award Has Been Renamed As?",
+        questionHi: "राजीव गांधी खेल रत्न पुरस्कार का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Major Dhyan Chand Khel Ratna Award", "Bharat Ratna Sports Award", "Arjuna Khel Award", "Dronacharya Sports Award"],
+        correctOptionIndex: 0,
+        explanation: "Rajiv Gandhi Khel Ratna Award has been renamed as 'Major Dhyan Chand Khel Ratna Award' in honour of India's hockey legend.",
+        importantFact: "Major Dhyan Chand is known as the 'Wizard of Hockey' — won 3 Olympic Gold medals (1928, 1932, 1936)."
+      },
+      {
+        id: 24,
+        category: "SCHEME RENAME",
+        questionEn: "Indira Gandhi Matritva Sahyog Yojana Has Been Renamed As?",
+        questionHi: "इंदिरा गांधी मातृत्व सहयोग योजना का नाम बदलकर क्या रख दिया गया है?",
+        options: ["Pradhan Mantri Matru Vandana Yojana", "Pradhan Mantri Jan Arogya Yojana", "National Maternity Benefit Scheme", "Beti Bachao Beti Padhao"],
+        correctOptionIndex: 0,
+        explanation: "Indira Gandhi Matritva Sahyog Yojana has been renamed as 'Pradhan Mantri Matru Vandana Yojana'.",
+        importantFact: "The scheme provides maternity benefit of ₹5000 to pregnant & lactating mothers for their first child."
+      },
+      {
+        id: 25,
+        category: "SCHEME RENAME",
+        questionEn: "Nirmal Bharat Abhiyan Has Been Renamed As?",
+        questionHi: "निर्मल भारत अभियान का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Swachh Bharat Mission", "Clean India Mission", "Namami Gange", "Atal Mission for Rejuvenation"],
+        correctOptionIndex: 0,
+        explanation: "Nirmal Bharat Abhiyan has been renamed as 'Swachh Bharat Mission' — launched on 2nd October 2014.",
+        importantFact: "Swachh Bharat Mission aims to achieve universal sanitation coverage and to eliminate open defecation."
+      },
+      {
+        id: 26,
+        category: "SCHEME RENAME",
+        questionEn: "Rajiv Gandhi Grameen Vidyutikaran Yojana Has Been Renamed As?",
+        questionHi: "राजीव गांधी ग्रामीण विद्युतीकरण योजना का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Deen Dayal Upadhyaya Gram Jyoti Yojana", "Saubhagya Scheme", "Ujjwala Yojana", "RGGVY 2.0"],
+        correctOptionIndex: 0,
+        explanation: "Rajiv Gandhi Grameen Vidyutikaran Yojana has been renamed as 'Deen Dayal Upadhyaya Gram Jyoti Yojana'.",
+        importantFact: "The scheme aims to provide 24×7 power supply to rural areas and improve sub-transmission infrastructure."
+      },
+      {
+        id: 27,
+        category: "SCHEME RENAME",
+        questionEn: "Indira Awas Yojana Has Been Renamed As?",
+        questionHi: "इंदिरा आवास योजना का नाम बदलकर क्या कर दिया गया है?",
+        options: ["Pradhan Mantri Awas Yojana – Gramin", "Housing for All Mission", "Pradhan Mantri Sahaj Bijli Har Ghar Yojana", "Rashtriya Gram Swaraj Abhiyan"],
+        correctOptionIndex: 0,
+        explanation: "Indira Awas Yojana has been renamed as 'Pradhan Mantri Awas Yojana – Gramin' (PMAY-G).",
+        importantFact: "PMAY-G aims to provide pucca houses with basic amenities to all homeless & kutcha house dwellers in rural areas."
+      }
+    ];
+
+    // Bento grid study model elements matching React QuickRefGrid logic
+    const bentoItems = [
+      { id: 1, category: "STATE RENAME", label: "Kerala → Keralam", qIndex: 0, icon: "🔄" },
+      { id: 2, category: "DEFENCE", label: "Fort William → Vijay Durg", qIndex: 13, icon: "🛡️" },
+      { id: 3, category: "CENTRAL GOVT", label: "PMO → Seva Teerth", qIndex: 2, icon: "🏛️" },
+      { id: 4, category: "AIRPORTS", label: "Pune → Tukaram Airport", qIndex: 16, icon: "✈️" },
+      { id: 5, category: "RURAL SCHEME", label: "MGNREGA → VB-G RAM G", qIndex: 7, icon: "🌾" },
+      { id: 6, category: "ISLANDS", label: "Port Blair → Sri Vijaya Puram", qIndex: 15, icon: "🏝️" },
+    ];
+
+    // Sound FX Synth State
+    let audioCtx = null;
+    let isSoundOn = true;
+
+    // Game states
+    let user_name = "";
+    let quizMode = "study"; // study or exam
+    let currentIdx = 0;
+    let selectedOptionIdx = null;
+    let isLocked = false;
+    let scoreCorrect = 0;
+    let scoreWrong = 0;
+    let answersRecord = {}; // qIndex -> { selectedOptionIdx, isCorrect }
+    let timerInterval = null;
+    let timerVal = 30;
+
+    // Initialize application settings
+    window.addEventListener('DOMContentLoaded', () => {
+      renderBento();
+      renderMatrixMap();
+    });
+
+    // Synthesize premium retro/arcade sound effects directly with Web Audio API (100% offline!)
+    function playAudio(type) {
+      if (!isSoundOn) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        
+        let osc = audioCtx.createOscillator();
+        let gain = audioCtx.createGain();
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        if (type === 'click') {
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(600, audioCtx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(150, audioCtx.currentTime + 0.1);
+          gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.1);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.1);
+        } else if (type === 'correct') {
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, audioCtx.currentTime); // C5
+          osc.frequency.setValueAtTime(659.25, audioCtx.currentTime + 0.1); // E5
+          osc.frequency.setValueAtTime(783.99, audioCtx.currentTime + 0.2); // G5
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.35);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.35);
+        } else if (type === 'wrong') {
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(180, audioCtx.currentTime);
+          osc.frequency.linearRampToValueAtTime(80, audioCtx.currentTime + 0.25);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime);
+          gain.gain.linearRampToValueAtTime(0.01, audioCtx.currentTime + 0.25);
+          osc.start();
+          osc.stop(audioCtx.currentTime + 0.25);
+        } else if (type === 'confetti') {
+          // Play sweeping fanfare melody
+          const notes = [329.63, 392.00, 523.25, 659.25, 783.99, 1046.50];
+          notes.forEach((freq, idx) => {
+            let o = audioCtx.createOscillator();
+            let g = audioCtx.createGain();
+            o.connect(g);
+            g.connect(audioCtx.destination);
+            o.type = 'sine';
+            o.frequency.setValueAtTime(freq, audioCtx.currentTime + (idx * 0.08));
+            g.gain.setValueAtTime(0.1, audioCtx.currentTime + (idx * 0.08));
+            g.gain.linearRampToValueAtTime(0.001, audioCtx.currentTime + (idx * 0.08) + 0.2);
+            o.start(audioCtx.currentTime + (idx * 0.08));
+            o.stop(audioCtx.currentTime + (idx * 0.08) + 0.2);
+          });
+        }
+      } catch (err) {
+        console.warn('Audio synthesis was blocked or not supported yet: ', err);
+      }
+    }
+
+    function toggleAudio() {
+      isSoundOn = !isSoundOn;
+      const soundBtn = document.getElementById('sound-btn');
+      const iconOn = document.getElementById('sound-on-icon');
+      if (isSoundOn) {
+        soundBtn.classList.remove('text-slate-500');
+        soundBtn.classList.add('text-orange-400');
+        iconOn.style.opacity = "1";
+      } else {
+        soundBtn.classList.remove('text-orange-400');
+        soundBtn.classList.add('text-slate-500');
+        iconOn.style.opacity = "0.5";
+      }
+      playAudio('click');
+    }
+
+    // Render Hero Study Bento Section
+    function renderBento() {
+      const bentoContainer = document.getElementById('offline-bento');
+      bentoContainer.innerHTML = `
+        <div class="text-center mb-6">
+          <span class="bg-orange-500/10 text-orange-400 border border-orange-500/30 text-xs px-3 py-1.5 rounded-full uppercase font-bold tracking-wider">
+            💡 Quick Study Material
+          </span>
+          <h2 class="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-white to-orange-350 mt-3 font-display">
+            Major Name Changes at a Glance
+          </h2>
+          <p class="text-sm text-slate-400 max-w-lg mx-auto mt-1 mb-6">
+            Click any card to jump directly to its complete exam slide with full facts and explanation.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left" id="bento-grid">
+        </div>
+      `;
+      
+      const bentoGrid = document.getElementById('bento-grid');
+      bentoItems.forEach(item => {
+        const itemCard = document.createElement('div');
+        itemCard.className = `group p-5 rounded-xl glass border-white/10 hover:border-orange-500/40 hover:orange-glow transition-all duration-300 relative overflow-hidden flex items-start gap-4 cursor-pointer`;
+        itemCard.onclick = () => {
+          user_name = document.getElementById('name-input').value.trim() || "Student";
+          gotoSlideFromBento(item.qIndex);
+        };
+        
+        itemCard.innerHTML = `
+          <div class="absolute top-0 left-0 w-1.5 h-full bg-blue-500 group-hover:bg-orange-500 transition-all"></div>
+          <div class="p-2.5 rounded-lg bg-white/5 text-blue-400 group-hover:bg-orange-500/10 group-hover:text-orange-400 transition-all duration-300">
+            <span class="text-xl">${item.icon}</span>
+          </div>
+          <div class="flex-grow">
+            <div class="flex justify-between items-center mb-1.5">
+              <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">${item.category}</span>
+              <span class="text-[10px] font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded transition-all">View Slide</span>
+            </div>
+            <span class="text-white font-extrabold text-base tracking-tight group-hover:text-orange-300 transition-colors">${item.label}</span>
+          </div>
+        `;
+        bentoGrid.appendChild(itemCard);
+      });
+    }
+
+    // Render Matrix Slide MAP buttons
+    function renderMatrixMap() {
+      const mapContainer = document.getElementById('map-grid-items');
+      mapContainer.innerHTML = '';
+      
+      QUESTIONS_DB.forEach((q, idx) => {
+        const btn = document.createElement('button');
+        btn.id = `matrix-btn-${idx}`;
+        btn.onclick = () => jumpToSlide(idx);
+        
+        let baseStyle = "w-full py-1.5 rounded text-xs font-bold transition-all border text-center cursor-pointer ";
+        let stateStyle = "border-white/5 text-white/50 bg-white/5 hover:bg-white/10";
+        
+        // update with answers state if logged
+        if (answersRecord[idx]) {
+          stateStyle = answersRecord[idx].isCorrect 
+            ? "bg-emerald-500/15 text-emerald-405 text-emerald-400 border-emerald-500/50 blue-glow"
+            : "bg-rose-500/15 text-rose-405 text-rose-400 border-rose-500/50";
+        }
+        
+        if (idx === currentIdx) {
+          stateStyle = "bg-orange-500/25 text-orange-405 text-orange-400 border-orange-500 select-none orange-glow font-black ring-1 ring-orange-500/30";
+        }
+
+        btn.className = baseStyle + stateStyle;
+        btn.innerText = idx + 1;
+        mapContainer.appendChild(btn);
+      });
+    }
+
+    // Navigation state logic
+    function gotoSlideFromBento(qIndex) {
+      playAudio('click');
+      quizMode = "study"; // study remains friendly
+      currentIdx = qIndex;
+      showQuizInterface();
+    }
+
+    function startQuiz(mode) {
+      playAudio('click');
+      user_name = document.getElementById('name-input').value.trim() || "Student";
+      quizMode = mode;
+      currentIdx = 0;
+      resetEvaluation();
+      showQuizInterface();
+    }
+
+    function showQuizInterface() {
+      document.getElementById('hero-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('hidden');
+      document.getElementById('quiz-screen').classList.add('flex');
+      document.getElementById('results-screen').classList.add('hidden');
+      loadSlideContent();
+    }
+
+    function gotoHome() {
+      playAudio('click');
+      stopTimer();
+      document.getElementById('hero-screen').classList.remove('hidden');
+      document.getElementById('quiz-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('flex');
+      document.getElementById('results-screen').classList.add('hidden');
+    }
+
+    function resetEvaluation() {
+      scoreCorrect = 0;
+      scoreWrong = 0;
+      answersRecord = {};
+      isLocked = false;
+      selectedOptionIdx = null;
+      document.getElementById('score-correct-cnt').innerText = "0";
+      document.getElementById('score-wrong-cnt').innerText = "0";
+      renderMatrixMap();
+      loadSlideContent();
+    }
+
+    function jumpToSlide(idx) {
+      if (isLocked && quizMode === "exam" && !answersRecord[currentIdx]) {
+        // block jump until lock done in exam mode
+        return;
+      }
+      playAudio('click');
+      currentIdx = idx;
+      loadSlideContent();
+    }
+
+    // Load active slide metadata & question options
+    function loadSlideContent() {
+      isLocked = false;
+      selectedOptionIdx = null;
+      stopTimer();
+
+      const q = QUESTIONS_DB[currentIdx];
+
+      // Update basic labels
+      document.getElementById('slide-category').innerText = q.category;
+      document.getElementById('slide-num-indicator').innerText = (currentIdx + 1) + " / " + QUESTIONS_DB.length;
+      document.getElementById('slide-q-badge').innerText = "QUESTION " + q.id;
+      document.getElementById('slide-question-en').innerText = q.questionEn;
+      document.getElementById('slide-question-hi').innerText = q.questionHi;
+      document.getElementById('slide-explanation-text').innerText = q.explanation;
+      document.getElementById('slide-important-fact').innerText = q.importantFact;
+
+      // Reset explanation visibility
+      document.getElementById('slide-explanation-card').classList.add('hidden');
+
+      // Ribbon calculation
+      const ribbonPct = Math.round(((currentIdx + 1) / QUESTIONS_DB.length) * 100);
+      document.getElementById('slide-prog-ribbon').style.width = ribbonPct + "%";
+
+      // Render options list
+      renderOptionsList(q);
+
+      // Re-trigger visual layout updates
+      renderMatrixMap();
+      updateProgressTracker();
+
+      if (quizMode === "exam") {
+        document.getElementById('timer-box').classList.remove('hidden');
+        document.getElementById('timer-box').classList.add('flex');
+        startTimer();
+      } else {
+        document.getElementById('timer-box').classList.add('hidden');
+        document.getElementById('timer-box').classList.remove('flex');
+      }
+
+      // Check if slide was completed before
+      if (answersRecord[currentIdx]) {
+        isLocked = true;
+        selectedOptionIdx = answersRecord[currentIdx].selectedOptionIdx;
+        revealLockVisuals(q);
+      } else {
+        applyStateActionBtn();
+      }
+    }
+
+    function renderOptionsList(q) {
+      const grid = document.getElementById('slide-options-grid');
+      grid.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const letter = ["A", "B", "C", "D"][idx];
+        const btn = document.createElement('div');
+        btn.id = `opt-card-${idx}`;
+        btn.onclick = () => selectOption(idx);
+        
+        btn.className = "p-5 rounded-xl border flex items-center gap-4 transition-all duration-200 cursor-pointer text-left glass border-white/10 hover:bg-white/10 text-slate-100 group";
+        
+        btn.innerHTML = `
+          <span class="w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-white/5 text-white/45 group-hover:bg-blue-500 group-hover:text-white transition-all duration-300">${letter}</span>
+          <span class="text-base sm:text-lg font-medium tracking-tight">${opt}</span>
+        `;
+        grid.appendChild(btn);
+      });
+    }
+
+    function selectOption(idx) {
+      if (isLocked) return;
+      playAudio('click');
+      selectedOptionIdx = idx;
+
+      // Highlight selected, clear remaining
+      const q = QUESTIONS_DB[currentIdx];
+      q.options.forEach((_, optIdx) => {
+        const card = document.getElementById(`opt-card-${optIdx}`);
+        const span = card.querySelector('span');
+        if (optIdx === idx) {
+          card.className = "p-5 rounded-xl border-2 flex items-center gap-4 transition-all duration-200 cursor-pointer text-left border-orange-500 bg-orange-500/10 text-orange-200 orange-glow group";
+          span.className = "w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-orange-500 text-white transition-all";
+        } else {
+          card.className = "p-5 rounded-xl border flex items-center gap-4 transition-all duration-200 cursor-pointer text-left glass border-white/10 hover:bg-white/10 text-slate-100 group";
+          span.className = "w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-white/5 text-white/45 group-hover:bg-blue-500 group-hover:text-white transition-all";
+        }
+      });
+
+      applyStateActionBtn();
+    }
+
+    // Apply main dynamic trigger button styles
+    function applyStateActionBtn() {
+      const btn = document.getElementById('slide-action-btn');
+      if (isLocked) {
+        btn.innerHTML = `<span>Next Slide</span> ➡️`;
+        btn.className = "px-8 py-3 bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-extrabold text-base rounded-full shadow-lg hover:scale-105 transition-all blue-glow flex items-center gap-2 cursor-pointer";
+      } else if (selectedOptionIdx === null) {
+        btn.innerHTML = `<span>Choose an Option</span>`;
+        btn.className = "px-8 py-3 bg-slate-800 text-slate-500 font-extrabold text-base rounded-full shadow cursor-not-allowed flex items-center gap-2";
+      } else {
+        btn.innerHTML = `<span>Lock Answer</span> ✔️`;
+        btn.className = "px-8 py-3 bg-gradient-to-r from-orange-500 to-pink-500 text-white font-extrabold text-base rounded-full shadow-lg hover:scale-105 transition-all orange-glow flex items-center gap-2 cursor-pointer";
+      }
+    }
+
+    function submitOrNext() {
+      if (isLocked) {
+        navigateSlide(1);
+        return;
+      }
+      
+      if (selectedOptionIdx === null) return;
+      
+      lockCurrentAnswer();
+    }
+
+    function lockCurrentAnswer() {
+      stopTimer();
+      isLocked = true;
+      const q = QUESTIONS_DB[currentIdx];
+      const isCorrect = (selectedOptionIdx === q.correctOptionIndex);
+
+      if (isCorrect) {
+        playAudio('correct');
+        scoreCorrect++;
+        document.getElementById('score-correct-cnt').innerText = scoreCorrect;
+      } else {
+        playAudio('wrong');
+        scoreWrong++;
+        document.getElementById('score-wrong-cnt').innerText = scoreWrong;
+      }
+
+      answersRecord[currentIdx] = { selectedOptionIdx, isCorrect };
+
+      revealLockVisuals(q);
+      updateProgressTracker();
+      renderMatrixMap();
+    }
+
+    function revealLockVisuals(q) {
+      q.options.forEach((_, optIdx) => {
+        const card = document.getElementById(`opt-card-${optIdx}`);
+        const span = card.querySelector('span');
+
+        if (optIdx === q.correctOptionIndex) {
+          // Highlight correct (emerald)
+          card.className = "p-5 rounded-xl border-2 flex items-center gap-4 transition-all duration-200 text-left border-emerald-500 bg-emerald-500/15 text-emerald-100 font-bold blue-glow";
+          span.className = "w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-emerald-600 text-white";
+          
+          // inject correct mark icon
+          if (!card.querySelector('.svg-chk')) {
+            const chk = document.createElement('div');
+            chk.className = "svg-chk ml-auto bg-emerald-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs";
+            chk.innerText = "✓";
+            card.appendChild(chk);
+          }
+        } else if (optIdx === selectedOptionIdx) {
+          // Selected wrong
+          card.className = "p-5 rounded-xl border-2 flex items-center gap-4 transition-all duration-200 text-left border-rose-500 bg-rose-500/15 text-rose-100 opacity-80";
+          span.className = "w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-rose-600 text-white";
+          
+          if (!card.querySelector('.svg-wrong')) {
+            const cross = document.createElement('div');
+            cross.className = "svg-wrong ml-auto bg-rose-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs";
+            cross.innerText = "✗";
+            card.appendChild(cross);
+          }
+        } else {
+          // Dull others
+          card.className = "p-5 rounded-xl border flex items-center gap-4 transition-all duration-200 text-left glass border-white/5 opacity-30 text-slate-500 pointer-events-none";
+          span.className = "w-10 h-10 rounded-lg flex items-center justify-center font-bold shrink-0 text-lg bg-white/5 text-slate-700";
+        }
+      });
+
+      // Show explanatory block
+      document.getElementById('slide-explanation-card').classList.remove('hidden');
+
+      applyStateActionBtn();
+    }
+
+    function navigateSlide(direction) {
+      playAudio('click');
+      let target = currentIdx + direction;
+      
+      if (target < 0) {
+        target = 0;
+      } else if (target >= QUESTIONS_DB.length) {
+        // Complete evaluation trigger!
+        triggerEvaluatedReportSummary();
+        return;
+      }
+
+      currentIdx = target;
+      loadSlideContent();
+    }
+
+    function updateProgressTracker() {
+      const answeredCount = Object.keys(answersRecord).length;
+      const pct = Math.round((answeredCount / QUESTIONS_DB.length) * 100);
+      document.getElementById('tracker-percentage').innerText = pct + "%";
+      document.getElementById('tracker-bar').style.width = pct + "%";
+    }
+
+    // Timer logic for Exam mode
+    function startTimer() {
+      timerVal = 30;
+      document.getElementById('timer-val').innerText = timerVal + "s";
+      document.getElementById('timer-val').className = "text-orange-400 font-mono text-sm font-bold animate-pulse";
+      
+      timerInterval = setInterval(() => {
+        timerVal--;
+        if (timerVal <= 0) {
+          timerVal = 0;
+          document.getElementById('timer-val').innerText = "Expired";
+          document.getElementById('timer-val').className = "text-rose-500 font-mono text-sm font-black";
+          // auto lock wrong
+          selectedOptionIdx = -1;
+          lockCurrentAnswer();
+        } else {
+          document.getElementById('timer-val').innerText = timerVal + "s";
+          if (timerVal <= 10) {
+            document.getElementById('timer-val').className = "text-rose-450 text-rose-500 font-mono text-sm font-black animate-ping";
+          }
+        }
+      }, 1000);
+    }
+
+    function stopTimer() {
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+    }
+
+    // Generate completion report and certificate
+    function triggerEvaluatedReportSummary() {
+      stopTimer();
+      playAudio('confetti');
+      triggerConfetti();
+
+      document.getElementById('hero-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('flex');
+      document.getElementById('results-screen').classList.remove('hidden');
+
+      const totalCorrect = scoreCorrect;
+      const rate = Math.round((totalCorrect / QUESTIONS_DB.length) * 100);
+
+      document.getElementById('result-score-percent').innerText = rate + "%";
+      document.getElementById('result-score-fraction').innerText = `${totalCorrect} / ${QUESTIONS_DB.length}`;
+
+      let grade = "EXPERT LEADER";
+      let gradeColor = "text-orange-400";
+      if (rate >= 90) {
+        grade = "A+ UNSTOPPABLE";
+        gradeColor = "text-emerald-400";
+      } else if (rate >= 75) {
+        grade = "A DISTINGUISHED";
+        gradeColor = "text-indigo-400";
+      } else if (rate >= 50) {
+        grade = "B PROFESSIONAL";
+        gradeColor = "text-blue-400";
+      } else {
+        grade = "C EXAM READY";
+        gradeColor = "text-slate-400";
+      }
+
+      const gradeEl = document.getElementById('result-score-grade');
+      gradeEl.innerText = grade;
+      gradeEl.className = "text-3xl font-black font-display font-extrabold " + gradeColor;
+
+      // Populate Certificate details
+      document.getElementById('cert-candidate-name').innerText = user_name || "VALUED STUDENT";
+      
+      const today = new Date();
+      const yr = today.getFullYear();
+      const mo = String(today.getMonth() + 1).padStart(2, '0');
+      const da = String(today.getDate()).padStart(2, '0');
+      document.getElementById('cert-stamp-date').innerText = `${yr}-${mo}-${da}`;
+    }
+
+    function triggerConfetti() {
+      const container = document.getElementById('confetti-container');
+      container.innerHTML = '';
+      const colors = ['#f97316', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6'];
+      
+      for (let i = 0; i < 80; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'confetti';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+        particle.style.animationDelay = (Math.random() * 2.5) + 's';
+        particle.style.transform = `scale(${Math.random() * 1.2 + 0.5})`;
+        container.appendChild(particle);
+      }
+    }
+  </script>
+</body>
+</html>
